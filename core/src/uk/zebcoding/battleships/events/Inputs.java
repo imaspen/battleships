@@ -3,13 +3,15 @@ package uk.zebcoding.battleships.events;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+
 import uk.zebcoding.battleships.Battleships;
 
 /**
  * Created by Charlotte on 13/12/2014.
  * (C) Charlotte Thompson 2014.
  */
-public class Inputs implements InputProcessor{
+public class Inputs implements InputProcessor {
+
     @Override
     public boolean keyDown(int keycode) {
         return false;
@@ -36,30 +38,35 @@ public class Inputs implements InputProcessor{
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        if (button == Input.Buttons.LEFT) {
+        if (button == Input.Buttons.LEFT && Battleships.getGamestate() < 10) {
             switch (Battleships.getGamestate()) {
                 case 0:
-                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12, Battleships.getRotated(), 5)) {
+                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12,
+                                                 Battleships.getRotated(), 5)) {
                         Battleships.setGamestate(1);
                     }
                     return true;
                 case 1:
-                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12, Battleships.getRotated(), 4)) {
+                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12,
+                                                 Battleships.getRotated(), 4)) {
                         Battleships.setGamestate(2);
                     }
                     return true;
                 case 2:
-                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12, Battleships.getRotated(), 3)) {
+                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12,
+                                                 Battleships.getRotated(), 3)) {
                         Battleships.setGamestate(3);
                     }
                     return true;
                 case 3:
-                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12, Battleships.getRotated(), 3)) {
+                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12,
+                                                 Battleships.getRotated(), 3)) {
                         Battleships.setGamestate(4);
                     }
                     return true;
                 case 4:
-                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12, Battleships.getRotated(), 2)) {
+                    if (Battleships.attemptPlace(getTwentyFourth(screenX), getTwentyFourth(screenY) - 12,
+                                                 Battleships.getRotated(), 2)) {
                         Battleships.setGamestate(5);
                     }
                     return true;
@@ -73,7 +80,7 @@ public class Inputs implements InputProcessor{
 
                 if (x < 10 && y < 10) {
                     if (Battleships.setStates(x, y)) {
-                        Battleships.cpuMove();
+                        Battleships.cpu1.cpuMove();
                     }
                     return true;
                 }
