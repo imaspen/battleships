@@ -1,6 +1,6 @@
 Battleships
 ===========
-A LibGDX game created by Charlotte.
+A LibGDX game.
 
 ##How to Play:##
 1. Place your ships!
@@ -20,5 +20,3 @@ A LibGDX game created by Charlotte.
 3. Finishing the game.
   * Once the game is over, the game will give you a result message.
   * To exit, either press esc or close the program.
-
-(C) Charlotte Thompson, 2015
